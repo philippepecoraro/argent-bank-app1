@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "./authHeader";
 
 
-const API_URL = "https://argent-bank-app-987c5064fdfd.herokuapp.com/api/v1/"
+const API_URL = "https://argent-bank-app1-860ef7cd3081.herokuapp.com/api/v1"
 
 
 const register = (email, password, firstName, LastName) => {
