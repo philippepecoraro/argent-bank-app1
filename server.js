@@ -7,7 +7,7 @@ const swaggerDocs = yaml.load('./swagger.yaml')
 const dbConnection = require('./database/connection')
 const path = require('path')
 //const helmet = require('helmet')
-const { directive } = require('vee-validate')
+
 
 dotEnv.config()
 
