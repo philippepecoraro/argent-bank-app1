@@ -7,6 +7,7 @@ const swaggerDocs = yaml.load('./swagger.yaml')
 const dbConnection = require('./database/connection')
 const path = require('path')
 const helmet = require('helmet')
+const { directive } = require('vee-validate')
 
 dotEnv.config()
 
@@ -24,7 +25,14 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Handle custom routes
-app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self"],
+            scriptSrc: ["'self", "https://argent-bank-app-987c5064fdfd.herokuapp.com/api/v1/user/login"]
+        }
+    }
+}))
 app.use('/api/v1/user', require('./routes/userRoutes'))
 
 // API Documentation
